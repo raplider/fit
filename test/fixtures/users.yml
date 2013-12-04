@@ -3,7 +3,7 @@
 one:
   firstname: MyString
   midlename: MyString
-  lasname: MyString
+  lastname: MyString
   position: MyString
   department: MyString
   password: MyString
@@ -11,7 +11,7 @@ one:
 two:
   firstname: MyString
   midlename: MyString
-  lasname: MyString
+  lastname: MyString
   position: MyString
   department: MyString
   password: MyString
