@@ -5,6 +5,8 @@ Fit::Application.routes.draw do
   match '/deanery',  :to => 'pages#deanery'
   match '/applicant',  :to => 'pages#applicant'
   match '/contact',  :to => 'pages#contact'
+  match '/login',  :to => 'users#login'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
