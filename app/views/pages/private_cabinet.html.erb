@@ -1,0 +1,9 @@
+<br/>
+private_cabinet.html:
+<br/>
+<%= link_to "Logout", {:controller => "users", :action => "logout"}%> </br>
+<b>id: </b>       <%= session[:id]%> <br/>
+<b>firstname: </b> <%= @user.firstname%> <br/>
+<b>midlename: </b> <%= @user.midlename%> <br/>
+<b>lastname: </b> <%= @user.lastname%> <br/>
+<b>password: </b> <%= @user.password%> <br/>

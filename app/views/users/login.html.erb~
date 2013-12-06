@@ -1,0 +1,10 @@
+
+
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+
+    <%= f.label :firstname %><br/>
+    <%= f.text_field :firstname %><br/>
+
+    <%= f.submit "Sing up"%>
+  
+<% end %>
