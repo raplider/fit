@@ -16,3 +16,4 @@
 
 # Ignore komodo ide project files
 *.komodoproject
+/.idea
