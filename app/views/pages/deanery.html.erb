@@ -1,2 +1,5 @@
+ <% #if @user != nil && @user.department == "deanery" %>
+	<p><%= link_to "Редагувати", "admins/deanery_editor"%></p>
+<% #end %>
 <p><%= link_to "Денне відділення" %></p>
 <p><%= link_to "Заочне відділення" %></p>
