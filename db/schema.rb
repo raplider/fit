@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20131204201455) do
-=======
 ActiveRecord::Schema.define(:version => 20131206172242) do
->>>>>>> b88f2b5e62627af68f56e98bd2072a3878188e55
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -32,8 +28,6 @@ ActiveRecord::Schema.define(:version => 20131206172242) do
     t.datetime "updated_at", :null => false
   end
 
-<<<<<<< HEAD
-=======
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -45,10 +39,9 @@ ActiveRecord::Schema.define(:version => 20131206172242) do
     t.string   "form_of_study"
   end
 
->>>>>>> b88f2b5e62627af68f56e98bd2072a3878188e55
   create_table "users", :force => true do |t|
     t.string   "firstname"
-    t.string   "midlename"
+    t.string   "middlename"
     t.string   "lastname"
     t.string   "position"
     t.string   "department"
