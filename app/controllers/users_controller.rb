@@ -27,11 +27,9 @@ class UsersController < ApplicationController
       @user = User.new
       render 'login'
     end
-    
   end
   
   def logout
-    
     session[:id] = nil
     redirect_to root_path
   end
