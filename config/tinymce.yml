@@ -1,0 +1,11 @@
+default:
+  plugins:
+    - table
+    - preview
+    - image
+    - link
+    - charmap
+    - visualblocks
+    - media
+    - paste
+    - fullscreen

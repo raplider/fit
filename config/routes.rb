@@ -1,4 +1,9 @@
 Fit::Application.routes.draw do
+
+  match '/admins/deanery_editor', :to =>'admins#deanery_editor'
+
+  get "admins/static_pages_editor"
+
   root :to => 'pages#index'
   
   match '/chairs',  :to => 'pages#chairs'
