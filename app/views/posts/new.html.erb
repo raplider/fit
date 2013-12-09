@@ -1,0 +1,15 @@
+<%= tinymce :language => "ru"%>
+
+<%= form_for @post, :url => {:controller => 'posts', :action => "create"}  do |f| %>
+
+
+  <%= f.label :title%></br>
+  <%= f.text_field :title%></br>
+  
+  <%= f.label :body%></br>
+  <%= f.text_area :body, :class => "tinymce"%>
+  
+  <%= f.file_field :file %><br/>
+  
+  <%= f.submit %>
+<%end%>

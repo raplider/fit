@@ -17,6 +17,11 @@ Fit::Application.routes.draw do
   
   match ':controller/:action'
   
+  match '/newpost', :to => 'posts#new'
+  match '/chairs/pzs', :to => 'pages#pzs'
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
