@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  
-  attr_accessible :firstname, :midlename, :lastname, :position, :department, :password
+  has_many :posts
+  attr_accessible :firstname, :middlename, :lastname, :position, :department, :password
   
 end

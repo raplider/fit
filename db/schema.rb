@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20131206182253) do
 
   create_table "users", :force => true do |t|
     t.string   "firstname"
-    t.string   "midlename"
+    t.string   "middlename"
     t.string   "lastname"
     t.string   "position"
     t.string   "department"

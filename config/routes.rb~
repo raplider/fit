@@ -1,28 +1,11 @@
 Fit::Application.routes.draw do
-
-  match '/admins/deanery_editor', :to =>'admins#deanery_editor'
-
-  get "admins/static_pages_editor"
-
   root :to => 'pages#index'
   
   match '/chairs',  :to => 'pages#chairs'
   match '/deanery',  :to => 'pages#deanery'
   match '/applicant',  :to => 'pages#applicant'
   match '/contact',  :to => 'pages#contact'
-  match '/cabinet',  :to => 'pages#private_cabinet'
-    
   match '/login',  :to => 'users#login'
-  match '/result',  :to => 'users#result'
-  
-  match '/newpost', :to => 'posts#new'
-  match '/chairs/pzs', :to => 'pages#pzs'
-  
-  match ':controller/:action'
-  
-  
-  
-  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

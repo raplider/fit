@@ -2,15 +2,7 @@
 
 one:
   firstname: MyString
-  midlename: MyString
-  lastname: MyString
-  position: MyString
-  department: MyString
-  password: MyString
-
-two:
-  firstname: MyString
-  midlename: MyString
+  middlename: MyString
   lastname: MyString
   position: MyString
   department: MyString

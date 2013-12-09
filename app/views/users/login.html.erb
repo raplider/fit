@@ -1,1 +1,14 @@
-<p><%= link_to "Логін" %></p>
+
+<%= form_for @user, :url => { :action => "result"} do |f|%>
+
+    <%= f.label :lastname %><br/>
+    <%= f.text_field :lastname %><br/>
+    
+    <%= f.label :password%><br/>
+    <%= f.password_field :password%><br/>
+    
+    <%= f.submit "Login"%><br/>
+    
+<% end %>
+
+
