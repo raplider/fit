@@ -15,10 +15,12 @@ Fit::Application.routes.draw do
   match '/login',  :to => 'users#login'
   match '/result',  :to => 'users#result'
   
-  match ':controller/:action'
-  
   match '/newpost', :to => 'posts#new'
   match '/chairs/pzs', :to => 'pages#pzs'
+  
+  match ':controller/:action'
+  
+  
   
   
   

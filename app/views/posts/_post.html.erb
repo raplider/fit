@@ -1,0 +1,17 @@
+<% for post in @posts%>
+   <div>
+  
+  <%= post.created_at%>
+  <% if session[:id] !=nil %>   
+      <% if post.user == @user%>
+         <%= link_to "Edit", {:controller => 'posts', :action => "edit", :id => "#{post.id}"}%>
+          or
+      <%= link_to "Delete", {:controller => "posts", :action => "delete", :id => "#{post.id}"}%>
+      <% end %>
+   <% end %>   
+   </div>
+   
+  <div><%= raw post.body %></div> 
+   
+
+<% end %>
