@@ -14,26 +14,14 @@ class PagesController < ApplicationController
   def contact
   end
   
-  def pzs
-    #if session[:id] == nil
-     #@user = User.find(session[:id])
-   #else
-    
-    
-    @posts = Post.all
-    #end
-  end
-
   def private_cabinet
     if session[:id] == nil
       redirect_to login_path
     else
       @user = User.find(session[:id])
-      @all_user = User.all
     end
 
-  end 
-
-
+  def pzs
+  end
   
 end
