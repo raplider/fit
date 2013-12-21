@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20131206182253) do
     t.string   "title"
     t.text     "body"
     t.string   "category"
-    t.integer  "chair_id"
     t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false

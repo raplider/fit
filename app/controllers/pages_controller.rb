@@ -15,13 +15,14 @@ class PagesController < ApplicationController
   end
   
   def pzs
-    #if session[:id] == nil
-     #@user = User.find(session[:id])
-   #else
-    
-    
+
+   # if session[:id] == nil
+   #   redirect_to "/chairs/pzs"
+   # else
+    if session[:id] != nil
+      @user = User.find(session[:id])    
+    end
     @posts = Post.all
-    #end
   end
 
   def private_cabinet
@@ -33,7 +34,5 @@ class PagesController < ApplicationController
     end
 
   end 
-
-
   
 end
