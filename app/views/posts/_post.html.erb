@@ -13,6 +13,8 @@
      </div>
      
     <div><%= raw p.body %></div> 
-   
+      <% if p.file_file_name != nil%>
+    <div><%= link_to "Viev file", p.file.url(:original)%></div>
+  <%end%></br> 
   <% end %>
 <% end %>
