@@ -1,0 +1,10 @@
+<%= form_for @photo, :url => {:action => "update", :id => "#{@photo.id}" },:html => {:multipart => true} do |f| %>
+
+  <%= f.label :title, "Назва фото" %><br />
+  <%= f.text_field :title %><br />
+  
+  <%= f.hidden_field :album_id, :value => @photo.album_id %><br /> 
+
+  <%= f.submit %>
+  
+<% end %>

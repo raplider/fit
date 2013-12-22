@@ -1,0 +1,16 @@
+albums view<br/>
+<%= link_to "Create new album", "/gallery/newalbum" %>
+
+<br/><br/>
+
+<%
+counter = 1
+for album in @albums %>
+<div class="album">
+<%= counter %>. <%= link_to album.title, "/gallery/album/#{album.id}" %>
+</div>
+<%
+counter = counter + 1
+end %>
+<br />
+<%= will_paginate @albums %>

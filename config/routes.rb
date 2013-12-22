@@ -1,16 +1,16 @@
-Fit::Application.routes.draw do
-
-  match '/admins/deanery_editor', :to =>'admins#deanery_editor'
-
-  get "admins/static_pages_editor"
-
-  root :to => 'pages#index'
+Fit2::Application.routes.draw do
   
-  match '/chairs',  :to => 'pages#chairs'
-  match '/deanery',  :to => 'pages#deanery'
-  match '/applicant',  :to => 'pages#applicant'
-  match '/contact',  :to => 'pages#contact'
-  match '/login',  :to => 'users#login'
+  match '/gallery', :to => 'album#view'
+  match '/gallery/newalbum', :to => 'album#new'
+  match '/gallery/error', :to => 'album#error'
+  match '/gallery/album/:album_id', :to => 'photos#view'
+  match '/gallery/album/:album_id/new', :to => 'photos#new'
+  match 'photos/voteup/:id', :to => 'photos#voteup'
+  match 'photos/edit', :to => 'photos#edit'
+  match 'photos/delete', :to => 'photos#delete'
+  
+  resources :album
+  resources :photos
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

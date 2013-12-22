@@ -1,0 +1,13 @@
+<%= form_for :photo, :url => {:action => "create"}, :html => {:multipart => true} do |f| %>
+
+  <%= f.label :title, "Назва фото" %><br />
+  <%= f.text_field :title %><br />
+  
+  <%= f.hidden_field :album_id, :value => @album.id %><br /> 
+  
+  <%= f.label :photo, "Виберіть фото" %><br />
+  <%= f.file_field :photo %><br />
+  
+  <%= f.submit %>
+  
+<% end %>

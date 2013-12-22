@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Fit::Application.load_tasks
+Fit2::Application.load_tasks

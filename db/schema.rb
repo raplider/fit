@@ -11,17 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131206182253) do
+ActiveRecord::Schema.define(:version => 20131222115352) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "pages", :force => true do |t|
-    t.string   "name"
-    t.string   "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -31,27 +24,16 @@ ActiveRecord::Schema.define(:version => 20131206182253) do
     t.integer  "album_id"
     t.integer  "user_id"
     t.integer  "vote"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.string   "category"
-    t.integer  "chair_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "form_of_study"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", :force => true do |t|
     t.string   "firstname"
-    t.string   "midlename"
-    t.string   "lastname"
-    t.string   "position"
-    t.string   "department"
     t.string   "password"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

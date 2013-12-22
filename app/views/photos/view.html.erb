@@ -1,0 +1,43 @@
+<style >
+  #tab{width:100%}
+  .r{width:400px; height:400px; float:left;text-align:center}
+</style>
+<%= link_to "Add new picture to album", "/gallery/album/#{params[:album_id]}/new" %>
+<br/>
+<%= link_to "Back to gallery", "/gallery/" %>
+<br/>
+<br/>
+
+<%= will_paginate @photos %>
+<br/>
+
+<div id="tab">
+<% for photo in @photos %>
+   <div class="r">
+      
+<%= link_to image_tag(photo.photo.url(:medium)), photo.photo.url(), :class => "fancybox",:rel => "group", :width => 400, :height => 600 %> <br />  
+   
+   <b>Автор: </b><%= photo.user.firstname %><br />
+   <b>Назва: </b><%= photo.title %><br />
+   
+   <span id = "rating<%= photo.id %>">
+      Рейтинг: <%= photo.vote %> 
+   </span>
+   
+<% #if session[:id] !=nil
+%>
+<a href='javascript:void(0)'
+onClick=" new Ajax.Updater('rating<%= photo.id %>', '/photos/voteup/<%= photo.id %>', { method: 'get' }); ">Like!</a> <br/>
+<% #end
+%>
+
+<% if photo.user == @user %>
+     <%= link_to "Rename", {:controller => "photos", :action => "edit", :id => "#{photo.id}" } %>
+     or
+     <%= link_to "Delete", {:controller => "photos", :action => "delete", :id => "#{photo.id}, :album_id => #{photo.album_id}" } %>
+<% end %>
+
+  </div>
+<% end %>
+</div>
+

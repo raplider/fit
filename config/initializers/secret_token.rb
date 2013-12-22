@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Fit::Application.config.secret_token = '6307242bd2d67ae1f366cf9d82f97100472915d2e422ee80f4a07390469b9de5910173589d2a93636ac7ba9fc34e56b91365f3de5e515009bbc962688e8bd1f0'
+Fit2::Application.config.secret_token = '9becd5b388a9db7d8dc5b84cc1dbf521ce3def3e1d413b4e5e8902af90c3c5b7d562af8bd5642065846263298686d1e7a6624575a01165e750ec1f998fccc132'
