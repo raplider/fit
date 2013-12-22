@@ -1,17 +1,18 @@
 <% for post in @posts%>
+  <% for p in post%>
    <div>
   
-  <%= post.created_at%>
-  <% if session[:id] !=nil %>   
-      <% if post.user == @user%>
-         <%= link_to "Edit", {:controller => 'posts', :action => "edit", :id => "#{post.id}"}%>
-          or
-      <%= link_to "Delete", {:controller => "posts", :action => "delete", :id => "#{post.id}"}%>
-      <% end %>
-   <% end %>   
-   </div>
+    <%= p.created_at%>
+    <% if session[:id] !=nil %>   
+        <% if p.user == @user%>
+           <%= link_to "Edit", {:controller => 'posts', :action => "edit", :id => "#{p.id}"}%>
+            or
+        <%= link_to "Delete", {:controller => "posts", :action => "delete", :id => "#{p.id}"}%>
+        <% end %>
+     <% end %>   
+     </div>
+     
+    <div><%= raw p.body %></div> 
    
-  <div><%= raw post.body %></div> 
-   
-
+  <% end %>
 <% end %>

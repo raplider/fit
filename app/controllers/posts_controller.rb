@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    if session[:id] != nil
+      @user = User.find(session[:id])
+    else
+      redirect_to root_path
+    end
   end
   
   def create
@@ -15,6 +20,11 @@ class PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
+    if session[:id] != nil
+      @user = User.find(session[:id])
+    else
+      redirect_to root_path
+    end
   end
   
   def update
