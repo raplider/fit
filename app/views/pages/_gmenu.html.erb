@@ -1,9 +1,45 @@
-<%= link_to "Новини", root_path %> |
-<%= link_to "Деканат", deanery_path %> |
-<%= link_to "Кафедри", chairs_path %> |
-<%= link_to "Студенту" %> |
-<%= link_to "Абітурієнту", applicant_path %> |
-<%= link_to "Проекти" %> |
-<%= link_to "Фотогалерея" %> |
-<%= link_to "Контакти" , contact_path %> |
-<%= link_to "Авторизація" , login_path %>
+<!--general menu-->
+<div id="menu">
+  <ul id="nav" class="breite">
+    <li><%= link_to "НОВИНИ", root_path %></li>
+    <li><%= link_to "ДЕКАНАТ", deanery_path %>
+    <ul class="room" >
+      <li ><a href="#">денне</a></li>
+      <li><a href="#">заочне</a></li>
+    </ul></li>
+    <li><%= link_to "КАФЕДРИ", chairs_path %>
+      <ul class="room">
+        <li><a href="#">Інформатики та фізико-математичних дисциплін</a></li>
+        <li><a href="#">Інформаційних управляючих систем і технологій (ІУСТ)</a></li>
+        <li><a href="#">Програмного забезпечення систем (ПЗС)</a></li>
+      </ul>
+    </li>
+    <li><%= link_to "СТУДЕНТУ" %>
+      <ul class="room">
+        <li><a href="#">студентське самоврядування</a></li>
+        <li><a href="#">наукове товариство</a></li>
+      </ul>
+    </li>
+    <li><%= link_to "АБІТУРІЕНТУ", applicant_path %>
+      <ul class="room" >
+        <li><a href="#">правила прийому</a></li>
+        <li><a href="#">підготовчі курси</a></li>
+      </ul>
+    </li>
+
+    <li><%= link_to "ГАЛЕРЕЯ" %></li>
+    <li><%= link_to "ПРОЕКТИ" %>
+      <ul class="room" >
+        <li><a href="#">наукові проекти</a></li>
+        <li><a href="#">конференції</a></li>
+        <li><a href="#">проекти студентів</a></li>
+      </ul>
+    </li>
+    <li><%= link_to "КОНТАКТИ" , contact_path %></li>
+    
+    <!--
+      There aren't enought free space for it
+      <li><%= link_to "Авторизація" , login_path %></li>
+    -->
+  </ul>
+</div>
