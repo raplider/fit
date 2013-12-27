@@ -2,14 +2,20 @@
 
 <%= form_for @post, :url => {:controller => 'posts', :action => "update", :id => "#{@post.id}"}  do |f| %>
 
-
   <%= f.label :title%></br>
   <%= f.text_field :title%></br>
   
   <%= f.label :body%></br>
   <%= f.text_area :body, :class => "tinymce"%>  
   
-  
+  <% if @user.department != "Деканат"%>
+  	<%= f.label :category %>
+  	<%= f.select :category,["Загальна","Внутрішня"] %> <br>
+  <% end %>
+  <% if @user.department == "Деканат"%>
+  	<%= f.label :form_of_study %>
+  	<%= f.select :form_of_study, ["ДВ","ЗВ"] %> <br>
+  <% end %>
   <%= f.file_field :file %><br/>
   
   <%= f.submit "Update"%>

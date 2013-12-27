@@ -1,3 +1,4 @@
+#encoding: utf-8
 class PagesController < ApplicationController
   def index
   end
@@ -15,13 +16,16 @@ class PagesController < ApplicationController
   end
   
   def pzs
-   # if session[:id] == nil
-   #   redirect_to "/chairs/pzs"
-   # else
-    if session[:id] != nil
+     if session[:id] != nil
       @user = User.find(session[:id])    
     end
-    @posts = Post.all
+    @users = User.find_all_by_department("ПЗС")
+
+    @posts = Array.new 
+    for u in @users
+      @posts.push Post.find_all_by_user_id(u.id)
+    end
+ # end
   end
 
   def private_cabinet
@@ -31,7 +35,7 @@ class PagesController < ApplicationController
       @user = User.find(session[:id])
       @all_user = User.all
     end
-  end 
 
+  end 
   
 end
