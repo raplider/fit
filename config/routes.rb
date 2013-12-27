@@ -12,7 +12,12 @@ Fit::Application.routes.draw do
   match '/contact',  :to => 'pages#contact'
   match '/cabinet',  :to => 'pages#private_cabinet'
     
+  
   match '/login',  :to => 'users#login'
+  
+  match '/xxx/admin/new',  :to => 'users#new'
+  match '/xxx/admin',  :to => 'users#admin'
+  
   match '/result',  :to => 'users#result'
   
   match '/newpost', :to => 'posts#new'
