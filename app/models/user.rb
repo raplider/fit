@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   validates :firstname, :presence => true
   validates :middlename, :presence => true
   validates :lastname, :presence => true
+  validates :position, :presence => true
+  validates :department, :presence => true
 
-  validates :password,  :presence => true,
-                        :confirmation => true
+  validates :password,  :presence => true
   
 end

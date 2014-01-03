@@ -1,0 +1,8 @@
+<%= link_to "Logout", supervisor_logout_path %> </br>
+<%= link_to "Реєстрація нового користувача" , supervisor_admin_new_path %>
+
+<% for this in @all_user%>
+  <br/> <%= this.lastname%>
+  <a href="<%=supervisor_admin_edit_path%>?id=<%= this.id %>">Редагувати</a>
+<%end%>
+

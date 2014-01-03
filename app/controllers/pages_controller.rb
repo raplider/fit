@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   end
   
   def pzs
-     if session[:id] != nil
+    if session[:id] != nil
       @user = User.find(session[:id])    
     end
     @users = User.find_all_by_department("ПЗС")
@@ -33,9 +33,7 @@ class PagesController < ApplicationController
       redirect_to login_path
     else
       @user = User.find(session[:id])
-      @all_user = User.all
     end
-
   end 
   
 end
