@@ -1,0 +1,13 @@
+<% flash.each do |key, values| %>
+        <div class="<%= flash_class(key) %>">
+            <ul>
+            <% if values.is_a?(Array) %>
+	            <% values.each do |value| %>
+	            	<li> <%= value %> </li>
+	            <% end %>
+	         <% else %>
+	         	<%= values %> 
+	         <% end %>
+            </ul>
+        </div>
+<% end %>

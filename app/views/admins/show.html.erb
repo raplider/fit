@@ -2,7 +2,7 @@
 <%= link_to "Вийти", logout_path, method: :delete %> </br>
 <b>id: </b>       <%= session[:id]%> <br/>
 
-<b> Ласкаво просимо, <%= @admin.full_name %>!</b> </br>
+<b> <%= @admin.full_name %></b> </br>
 <b>Відділення: </b> <%= @admin.department%> <br/>
 <b>Посада: </b> <%= @admin.position%> <br/>
 <b>Пароль: </b> <%= @admin.password%> <br/>

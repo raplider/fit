@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #encoding: utf-8
 class PagesController < ApplicationController
   def index
@@ -32,7 +33,7 @@ class PagesController < ApplicationController
     if session[:id] == nil
       redirect_to login_path
     else
-      @user = User.find(session[:id])
+      @admin = Admin.find(session[:id])
     end
   end 
   

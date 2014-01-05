@@ -1,0 +1,7 @@
+<%= link_to "Logout", logout_path, method: :delete %> </br>
+<%= link_to "Реєстрація нового користувача" , supervisor_admin_new_path %> <br> 
+
+<% @all_admins.each do |admin| %>
+	<%= admin.full_name %> <%= link_to "Edit", edit_admin_path(admin) %> <br>
+<% end %>
+

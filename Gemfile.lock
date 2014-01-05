@@ -50,6 +50,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    magic_encoding (0.0.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -77,6 +78,9 @@ GEM
       activesupport (= 3.2.0)
       bundler (~> 1.0)
       railties (= 3.2.0)
+    rails-i18n (3.0.0)
+      i18n (~> 0.5)
+      rails (>= 3.0.0, < 4.0.0)
     railties (3.2.0)
       actionpack (= 3.2.0)
       activesupport (= 3.2.0)
@@ -119,8 +123,10 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
+  magic_encoding
   paperclip
   rails (= 3.2.0)
+  rails-i18n (~> 3.0.0)
   sass-rails (~> 3.2.3)
   sqlite3
   tinymce-rails

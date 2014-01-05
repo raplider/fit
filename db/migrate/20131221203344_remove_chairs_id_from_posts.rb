@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveChairsIdFromPosts < ActiveRecord::Migration
   def up
     remove_column :posts, :chair_id

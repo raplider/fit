@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAlbums < ActiveRecord::Migration
   def change
     create_table :albums do |t|

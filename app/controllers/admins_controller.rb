@@ -1,91 +1,70 @@
+# -*- encoding : utf-8 -*-
 class AdminsController < ApplicationController
-    
+  
+  # Перед кожним методом запускаєм метод, який перевіряє, чи юзер залогінений
+  before_filter :admin_logged_in?
+  # Перевіряє, чи адмін є суперадміном
+  before_filter :super_admin?
+
+  # Сторінка із списком всіх адмінів
+  def index
+    @admin      = Admin.find(session[:id])
+    @all_admins = Admin.all
+  end
+
+  def show
+    @admin = Admin.find(params[:id])
+  end
+  
   def new
-    @user = User.new
+    @admin = Admin.new
   end
   
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      session[:id] = @user.id
-      redirect_to supervisor_admin_path
+    @admin = Admin.new(params[:admin])
+
+    if @admin.save
+      session[:id] = @admin.id
+      flash[:success] = "Обліковий запис успішно створено"
+      redirect_to admins_path
     else
-      render 'new'
+      flash[:error] = "Виникли помилки при створенні 
+                         облікового запису"
+      render :new
     end    
   end
   
-  def login
-    @user = User.new
-    if session[:id] != nil
-      @user = User.find(session[:id])
-      if @user.lastname == "admin"
-	redirect_to supervisor_admin_path
-      else
-	#@user = User.new
-	render 'login'
-      end
-    else
-      #@user = User.new
-      render 'login'
-    end
-  end
-  
-  def result
-    @user = User.find_by_lastname_and_password(params[:user][:lastname], params[:user][:password])
-    if @user && @user.lastname == "admin"
-      session[:id] = @user.id
-      redirect_to supervisor_admin_path
-    else
-      #@user = User.new
-      #render 'login'      
-      redirect_to supervisor_login_path
-    end
-  end
-  
-  def logout
-    session[:id] = nil
-    redirect_to supervisor_login_path
-  end
-  
-  def admin
-    if session[:id] != nil
-      @user = User.find(session[:id])
-      if @user.lastname == "admin"
-	@all_user = User.all
-      else
-	#@user = User.new
-	#render 'login'
-	redirect_to supervisor_login_path
-      end
-    else
-      #@user = User.new
-      #render 'login'
-      redirect_to supervisor_login_path
-    end
-  end
-
   def edit
-    @user = User.find(params[:id])
+    @admin = Admin.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:user][:id])
-    if @user.update_attributes(params[:user])
-      redirect_to supervisor_admin_path
+    @admin = Admin.find(params[:id])
+
+    if @admin.update_attributes(params[:admin])
+      flash[:success] = "Обліковий запис успішно оновлено"
+      redirect_to admin_path(session[:id])
     else
-      redirect_to supervisor_admin_edit_path + "?id=" + params[:user][:id]
+  
+      flash[:error] = @admin.errors.full_messages
+      redirect_to edit_admin_path(@admin)
     end
   end
-  
-  #def deanery_editor
-  #  if session[:id] != nil
-  #    	@user = User.find(session[:id])
-  #  else
-  #  	@user = nil
-  #    	redirect_to :action=>"deanery", :controller=>"pages"
-  #  end
-  #end
 
-  def static_pages_editor
-  end
+  private
+
+    # Якщо адмін не залогінений - редірект в рут_пас
+    def admin_logged_in?
+      session[:id] ? true : (redirect_to root_path, alert: "У вас відсутні права для перегляду цієї сторінки")
+    end
+    
+    # Якщо ід сторінки не == ід залогіненого адміна (напр. /admin/edit/2 і session[:id] == 1)
+    # або адмін не є СУПЕРАДМІНОМ послати в рут_пас
+    def super_admin?
+      admin = Admin.find(session[:id])
+
+      unless params[:id].to_s == session[:id].to_s || admin.lastname == "admin"
+        redirect_to root_path, alert: "У вас відсутні права для перегляду цієї сторінки" 
+      end
+    end
 end

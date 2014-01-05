@@ -15,3 +15,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'magic_encoding' # Фіксить киррилицю в контроллерах
+gem 'rails-i18n', '~> 3.0.0' # Переклад
