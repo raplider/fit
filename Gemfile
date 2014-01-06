@@ -6,7 +6,9 @@ gem 'sqlite3'
 
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
+
 gem 'paperclip'
+gem 'will_paginate', '~> 3.0.5'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

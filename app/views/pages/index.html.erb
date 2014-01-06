@@ -1,0 +1,32 @@
+<div class="container">
+	<div id="board"><img src="/images/motherboard.jpg" alt="Information Technology"  border="0" class="logo" title="Information Technology" />
+	</div>
+	<!-- news -->	 							
+	<div id="us">
+		<div id="block_a" class="fon">
+			<h1><a href="#">НОВИНИ</a></h1>
+			<div class="text">
+
+
+				<% @posts.each do |post| %>
+
+				<h2><!--<%= post.title %>--> <%= post.created_at.strftime("%Y-%m-%d") %></h2>
+
+				<p><%= truncate(post.body, length: 150) %></p>
+				
+				<h3><a href="/posts/show/<%= post.id %>"><span><ins>Далі</ins></a></span></h3>
+
+					<% end %>
+
+				</div>
+				</br>
+				</br>
+				<%= will_paginate @posts %>
+			</div>
+			<div id="block_b" class="fon">
+				<h1><a href="#">КОНФЕРЕНЦІЇ</a></h1>
+				<div class="text">
+				</div>
+			</div>
+		</div>
+	</div>
