@@ -1,8 +1,6 @@
 # -*- encoding : utf-8 -*-
 Fit::Application.routes.draw do
 
-  
-
   root :to => 'pages#index'
 
 
@@ -22,6 +20,12 @@ Fit::Application.routes.draw do
   match '/supervisor/logout',  :to => 'admins#logout'
   match '/supervisor/admin/new',  :to => 'admins#new'
   match '/supervisor/admin/edit',  :to => 'admins#edit'
+  match '/login',  :to => 'users#login'
+ 
+  resources :posts, :except => [:index, :show]
+ 
+  match "(posts/show/:id)"  => "pages#show"
+  match "posts(/:page)"     => "pages#index"
   
   match '/result',  :to => 'users#result'
   

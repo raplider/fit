@@ -1,0 +1,15 @@
+<div class="container">
+	<div id="board"><img src="/../images/motherboard.jpg" alt="Information Technology"  border="0" class="logo" title="Information Technology" />
+	</div>
+	<!-- news -->	 							
+	<div id="us">
+		<div id="block_a" class="fon">
+			<h1><a href="#">НОВИНИ</a></h1>
+			<div class="text">
+				<h2><!-- <%= @post.title %>--> <%= @post.created_at.strftime("%Y-%m-%d") %></h2>
+				<p><%= @post.body %></p>
+					</div>
+			</div>
+			
+		</div>
+	</div>
