@@ -7,35 +7,31 @@ class PagesController < ApplicationController
   def chairs
   end
   
-  def deanery
-  end
 
   def deanery_full_time
-    @form_of_study = "full_time"
-
     if session[:id] != nil
       @user = Admin.find(session[:id])    
     end
-    @users = Admin.find_all_by_department("Деканат")
 
-    @posts = Array.new 
-    for u in @users
-      @posts.push Post.paginate(:page => params[:page]).find_all_by_user_id_and_form_of_study(u.id, "ДВ")
-    end
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department_and_form_of_study("Деканат", "ДВ")
   end
 
   def deanery_correspondence
-    @form_of_study = "correspondence"
-
     if session[:id] != nil
       @user = Admin.find(session[:id])    
     end
-    @users = Admin.find_all_by_department("Деканат")
 
-    @posts = Array.new 
-    for u in @users
-      @posts.push Post.paginate(:page => params[:page]).find_all_by_user_id_and_form_of_study(u.id, "ЗВ")
-    end
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department_and_form_of_study("Деканат","ЗВ")
+
+    #if session[:id] != nil
+     # @user = Admin.find(session[:id])    
+    ##end
+    #@users = Admin.find_all_by_department("Деканат")
+
+    #@posts = Array.new 
+    #for u in @users
+     # @posts.push Post.paginate(:page => params[:page]).find_all_by_user_id_and_form_of_study(u.id, "ЗВ")
+    #end
   end
 
   def applicant
@@ -48,13 +44,8 @@ class PagesController < ApplicationController
     if session[:id] != nil
       @user = Admin.find(session[:id])    
     end
-    @users = Admin.find_all_by_department("ПЗС")
 
-    @posts = Array.new 
-    for u in @users
-      @posts.push Post.find_all_by_user_id(u.id)
-    end
- # end
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department("ПЗС")
   end
 
   def private_cabinet
