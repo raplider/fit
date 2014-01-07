@@ -16,5 +16,9 @@ class Post < ActiveRecord::Base
 
 
   default_scope :order => 'posts.created_at DESC'
+<<<<<<< HEAD
 
+=======
+  self.per_page = 4
+>>>>>>> Paginate added, post views edited
 end

@@ -160,12 +160,16 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
     will_paginate (3.0.5)
 =======
     uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
 >>>>>>> Added social buttons
+=======
+    will_paginate (3.0.5)
+>>>>>>> Paginate added, post views edited
 
 PLATFORMS
   ruby
@@ -191,7 +195,11 @@ DEPENDENCIES
   tinymce-rails-langs
   uglifier (>= 1.0.3)
 <<<<<<< HEAD
+<<<<<<< HEAD
   will_paginate
 =======
   uuidtools
 >>>>>>> Added social buttons
+=======
+  will_paginate
+>>>>>>> Paginate added, post views edited

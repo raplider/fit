@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @post = Post.new
     if session[:id] != nil
       @user = Admin.find(session[:id])
+      @cabinet = params[:cabinet]
     else
       redirect_to root_path
     end
@@ -41,6 +42,14 @@ def create
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
+
+    @post.department = @user.department 
+    if @post.save!
+      redirect_to cabinet_path
+    else
+      render 'new'
+    end    
+  end
 
   
 def edit
