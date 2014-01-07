@@ -1,4 +1,15 @@
 <div id="header" >
+  <div id="sign-in-buttons">
+  	<% unless current_user %>
+	  	<%= link_to "Facebook", user_omniauth_authorize_path(:facebook), :class=>"btn btn-info" %>
+	  	<%= link_to "Twitter", user_omniauth_authorize_path(:twitter), :class=>"btn btn-info" %>
+	  	<%= link_to "VK", user_omniauth_authorize_path(:vkontakte), :class=>"btn btn-info" %>
+  	<% else %>
+  		<%= current_user.name if current_user %>
+  		<%= link_to "Logout", destroy_user_session_path, method: :delete if current_user %>
+  	<% end %>
+  </div>
+   
   <div class="header_center">
     <div class="g1"><h1><%= link_to "фiт", root_path %></h1></div>
     <div class="g2">Факультет Інформаційних Технологій</div>

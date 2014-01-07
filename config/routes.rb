@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Fit::Application.routes.draw do
 
+  
+
   root :to => 'pages#index'
 
 
@@ -25,6 +27,7 @@ Fit::Application.routes.draw do
   
   match '/newpost', :to => 'posts#new'
   match '/chairs/pzs', :to => 'pages#pzs'
+
   match ':controller/:action'
 
   match '/newfile', :to => 'deanery_files#new'
@@ -34,10 +37,18 @@ Fit::Application.routes.draw do
 
   # зверху хуйня
 
+
   match ':controller/:action'
 
   resources :sessions
   resources :admins
   get    '/login'  => 'sessions#new',     as: 'login'
   delete '/logout' => 'sessions#destroy', as: 'logout'
+
+  # Devise & Omniauth
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_scope :user do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
+
 end
