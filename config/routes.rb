@@ -25,7 +25,12 @@ Fit::Application.routes.draw do
   match '/newpost', :to => 'posts#new'
   match '/chairs/pzs', :to => 'pages#pzs'
   
+  match '/student/scientific_society', :to => 'pages#scientific_society'
+  match '/student/students_sg', :to => 'pages#students_sg'
+
   # зверху хуйня
+
+  match ':controller/:action'
 
   resources :sessions
   resources :admins

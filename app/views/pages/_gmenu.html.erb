@@ -27,8 +27,8 @@
     </li>
     <li><%= link_to "СТУДЕНТУ" %>
       <ul class="room">
-        <li><a href="#">студентське самоврядування</a></li>
-        <li><a href="#">наукове товариство</a></li>
+        <li><%= link_to "студентське самоврядування", :controller => "pages", :action => "students_sg" %></li>
+        <li><%= link_to "наукове товариство", :controller => "pages", :action => "scientific_society" %></li>
       </ul>
     </li>
     <li><%= link_to "АБІТУРІЕНТУ", applicant_path %>

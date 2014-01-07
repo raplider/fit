@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104182158) do
+ActiveRecord::Schema.define(:version => 20140107183451) do
 
   create_table "admins", :force => true do |t|
     t.string   "firstname"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20140104182158) do
     t.string   "title"
     t.text     "body"
     t.string   "category"
-    t.integer  "user_id"
+    t.integer  "admin_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "form_of_study"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20140104182158) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.string   "department"
   end
 
 end

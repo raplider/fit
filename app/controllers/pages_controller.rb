@@ -18,15 +18,22 @@ class PagesController < ApplicationController
   
   def pzs
     if session[:id] != nil
-      @user = User.find(session[:id])    
+      @user = Admin.find(session[:id])    
     end
-    @users = User.find_all_by_department("ПЗС")
 
-    @posts = Array.new 
-    for u in @users
-      @posts.push Post.find_all_by_user_id(u.id)
+    @posts = Post.find_all_by_department("ПЗС")
+  end
+
+  def students_sg    #student
+    if session[:id] != nil
+      @user = Admin.find(session[:id])
     end
- # end
+  end
+
+  def scientific_society       #student
+    if session[:id] != nil
+      @user = Admin.find(session[:id])
+    end
   end
 
   def private_cabinet
