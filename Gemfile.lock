@@ -31,8 +31,9 @@ GEM
     arel (3.0.3)
     bcrypt-ruby (3.1.2)
     bcrypt-ruby (3.1.2-x86-mingw32)
+    bootstrap-sass (3.0.3.0)
+      sass (~> 3.2)
     builder (3.0.4)
-    certified (0.1.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -159,24 +160,21 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-<<<<<<< HEAD
-<<<<<<< HEAD
     will_paginate (3.0.5)
-=======
+
     uuidtools (2.1.4)
+
     warden (1.2.3)
       rack (>= 1.0)
->>>>>>> Added social buttons
-=======
-    will_paginate (3.0.5)
->>>>>>> Paginate added, post views edited
+
+
 
 PLATFORMS
   ruby
   x86-mingw32
 
 DEPENDENCIES
-  certified
+  bootstrap-sass (~> 3.0.3.0)
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
@@ -194,12 +192,5 @@ DEPENDENCIES
   tinymce-rails
   tinymce-rails-langs
   uglifier (>= 1.0.3)
-<<<<<<< HEAD
-<<<<<<< HEAD
   will_paginate
-=======
   uuidtools
->>>>>>> Added social buttons
-=======
-  will_paginate
->>>>>>> Paginate added, post views edited
