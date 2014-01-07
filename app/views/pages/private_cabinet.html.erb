@@ -1,3 +1,8 @@
+</br>
+<% if session[:id] !=nil%>   
+  <%= link_to "Create New Post", newpost_path(:cabinet => true)%>
+<%end%>
+<%= render 'posts/post'%></br>
 <br/>
 <%= link_to "Вийти", logout_path, method: :delete %> </br>
 <b>id: </b>       <%= session[:id]%> <br/>

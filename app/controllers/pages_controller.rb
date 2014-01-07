@@ -18,23 +18,33 @@ class PagesController < ApplicationController
   
   def pzs
     if session[:id] != nil
-      @user = User.find(session[:id])    
+      @user = Admin.find(session[:id])    
     end
-    @users = User.find_all_by_department("ПЗС")
 
-    @posts = Array.new 
-    for u in @users
-      @posts.push Post.find_all_by_user_id(u.id)
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department("ПЗС")
+  end
+
+    def iust
+     if session[:id] != nil
+      @user = Admin.find(session[:id])    
     end
- # end
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department("ІУСТ")
+  end
+
+    def zimm
+     if session[:id] != nil
+      @user = Admin.find(session[:id])    
+    end
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department("ЗІМM")
   end
 
   def private_cabinet
     if session[:id] == nil
       redirect_to login_path
     else
-      @admin = Admin.find(session[:id])
+      @admin = Admin.find(session[:id])  
     end
-  end 
+    @posts = Post.paginate(:page => params[:page]).find_all_by_admin_id_and_department(@admin.id, nil)
+  end
   
 end

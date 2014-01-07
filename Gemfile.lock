@@ -115,6 +115,7 @@ GEM
     uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
   ruby
@@ -132,3 +133,4 @@ DEPENDENCIES
   tinymce-rails
   tinymce-rails-langs
   uglifier (>= 1.0.3)
+  will_paginate

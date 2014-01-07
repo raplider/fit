@@ -1,0 +1,5 @@
+</br>
+<% if session[:id] !=nil %>   
+  <%= link_to "Create New Post", newpost_path%>
+<%end%>
+<%= render 'posts/post'%></br>
