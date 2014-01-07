@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Post < ActiveRecord::Base
+  
   	belongs_to :admin
 
   	attr_accessible :title, :body, :file, :category, :form_of_study
@@ -12,4 +13,8 @@ class Post < ActiveRecord::Base
 
 	default_scope :order => 'posts.created_at DESC'
 	self.per_page = 2
+
+
+  default_scope :order => 'posts.created_at DESC'
+
 end

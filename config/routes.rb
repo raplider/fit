@@ -29,7 +29,12 @@ Fit::Application.routes.draw do
 
   match '/newfile', :to => 'deanery_files#new'
   
+  match '/student/scientific_society', :to => 'pages#scientific_society'
+  match '/student/students_sg', :to => 'pages#students_sg'
+
   # зверху хуйня
+
+  match ':controller/:action'
 
   resources :sessions
   resources :admins

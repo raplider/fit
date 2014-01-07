@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     end
   end
   
+
 def create
     @user = Admin.find(session[:id])
     @post = @user.posts.build(params[:post])
@@ -40,8 +41,7 @@ def create
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-    end    
-  end
+
   
 def edit
     @post = Post.find(params[:id])

@@ -38,6 +38,19 @@ class PagesController < ApplicationController
     end
 
     @posts = Post.paginate(:page => params[:page]).find_all_by_department("ПЗС")
+
+  end
+
+  def students_sg    #student
+    if session[:id] != nil
+      @user = Admin.find(session[:id])
+    end
+  end
+
+  def scientific_society       #student
+    if session[:id] != nil
+      @user = Admin.find(session[:id])
+    end
   end
 
   def private_cabinet
