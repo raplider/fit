@@ -44,6 +44,11 @@ Fit::Application.routes.draw do
 
   match ':controller/:action'
 
+  match '/chairs/iust', :to => 'pages#iust'
+  match '/chairs/zimm', :to => 'pages#zimm'
+
+  match ':controller/:action'
+
   resources :sessions
   resources :admins
   get    '/login'  => 'sessions#new',     as: 'login'

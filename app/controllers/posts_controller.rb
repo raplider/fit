@@ -53,6 +53,10 @@ def create
 
   
 def edit
+    end
+
+
+  def edit
     @post = Post.find(params[:id])
     if session[:id] != nil
       @user = Admin.find(session[:id])

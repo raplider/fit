@@ -12,13 +12,7 @@ class Post < ActiveRecord::Base
     validates :title, :body, :presence => true
 
 	default_scope :order => 'posts.created_at DESC'
-	self.per_page = 2
 
-
-  default_scope :order => 'posts.created_at DESC'
-<<<<<<< HEAD
-
-=======
   self.per_page = 4
->>>>>>> Paginate added, post views edited
+
 end
