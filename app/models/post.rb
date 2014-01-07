@@ -6,4 +6,5 @@ class Post < ActiveRecord::Base
     :content_type => {:content_type => ["application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/pdf", "text/plain"] }
 
   default_scope :order => 'posts.created_at DESC'
+  self.per_page = 4
 end

@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @post = Post.new
     if session[:id] != nil
       @user = Admin.find(session[:id])
+      @cabinet = params[:cabinet]
     else
       redirect_to root_path
     end
@@ -12,6 +13,7 @@ class PostsController < ApplicationController
   def create
     @user = Admin.find(session[:id])
     @post = @user.posts.build(params[:post])
+
     @post.department = @user.department 
     if @post.save!
       redirect_to cabinet_path

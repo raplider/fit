@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-#encoding: utf-8
 class PagesController < ApplicationController
   def index
   end
@@ -21,7 +20,7 @@ class PagesController < ApplicationController
       @user = Admin.find(session[:id])    
     end
 
-    @posts = Post.find_all_by_department("ПЗС")
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department("ПЗС")
   end
 
   def students_sg    #student
@@ -34,6 +33,8 @@ class PagesController < ApplicationController
     if session[:id] != nil
       @user = Admin.find(session[:id])
     end
+
+    @posts = Post.find_all_by_department("Студенти")
   end
 
   def private_cabinet
