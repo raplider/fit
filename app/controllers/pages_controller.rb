@@ -10,6 +10,34 @@ class PagesController < ApplicationController
   def deanery
   end
 
+  def deanery_full_time
+    @form_of_study = "full_time"
+
+    if session[:id] != nil
+      @user = Admin.find(session[:id])    
+    end
+    @users = Admin.find_all_by_department("Деканат")
+
+    @posts = Array.new 
+    for u in @users
+      @posts.push Post.paginate(:page => params[:page]).find_all_by_user_id_and_form_of_study(u.id, "ДВ")
+    end
+  end
+
+  def deanery_correspondence
+    @form_of_study = "correspondence"
+
+    if session[:id] != nil
+      @user = Admin.find(session[:id])    
+    end
+    @users = Admin.find_all_by_department("Деканат")
+
+    @posts = Array.new 
+    for u in @users
+      @posts.push Post.paginate(:page => params[:page]).find_all_by_user_id_and_form_of_study(u.id, "ЗВ")
+    end
+  end
+
   def applicant
   end
 
@@ -18,9 +46,9 @@ class PagesController < ApplicationController
   
   def pzs
     if session[:id] != nil
-      @user = User.find(session[:id])    
+      @user = Admin.find(session[:id])    
     end
-    @users = User.find_all_by_department("ПЗС")
+    @users = Admin.find_all_by_department("ПЗС")
 
     @posts = Array.new 
     for u in @users
