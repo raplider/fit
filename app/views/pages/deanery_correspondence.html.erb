@@ -5,10 +5,21 @@
 	<% end %>
 <% end %>
 
-<div class="wrapper">
-	<div class="deanery_news_block"><%= render 'posts/post'%></div>
-	<div class="deanery_files_block"><%= render 'deanery_files/deanery_file'%></div>
+
+
+<div class="container">
+  <ul class="tabs">
+    <li><a href="#tab1">Новини</a></li>
+    <li><a href="#tab2">Файли</a></li>
+  </ul>
+  <div class="tab_container">
+    <div id="tab1" class="tab_content">
+
+     <%= render 'posts/post'%>
+    </div>
+    <div id="tab2" class="tab_content">
+<%= render 'deanery_files/deanery_file'%>
+    </div>
+
+  </div>
 </div>
-
-
-	

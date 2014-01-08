@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     end
 
     @posts = Post.paginate(:page => params[:page]).find_all_by_department_and_form_of_study("Деканат", "ДВ")
-    @deanery_file = DeaneryFile.paginate(:page => params[:page]).find_all_by_form_of_study("ДВ")
+    @deanery_file = DeaneryFile.find_all_by_form_of_study("ДВ")
   end
 
   def deanery_correspondence
@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     end
 
     @posts = Post.paginate(:page => params[:page]).find_all_by_department_and_form_of_study("Деканат","ЗВ")
-    @deanery_file = DeaneryFile.paginate(:page => params[:page]).find_all_by_form_of_study("ЗВ")
+    @deanery_file = DeaneryFile.find_all_by_form_of_study("ЗВ")
   end
 
   def applicant
