@@ -14,6 +14,7 @@ Fit::Application.routes.draw do
   match '/applicant',  :to => 'pages#applicant'
   match '/contact',  :to => 'pages#contact'
   match '/cabinet',  :to => 'pages#private_cabinet'
+  match '/student/scientific_society', :to => 'pages#scientific_society'
       
   match '/supervisor/admin',  :to => 'admins#admin'
   match '/supervisor/login',  :to => 'admins#login'

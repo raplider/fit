@@ -1,8 +1,19 @@
+
+<%= link_to "Новини", root_path %> |
+<%= link_to "Деканат", deanery_correspondence_path %> |
+<%= link_to "Кафедри", chairs_path %> |
+<%= link_to "Студенту" %> |
+<%= link_to "Абітурієнту", applicant_path %> |
+<%= link_to "Проекти" %> |
+<%= link_to "Фотогалерея" %> |
+<%= link_to "Контакти" , contact_path %> |
+<%= link_to "Особистий кабінет" , cabinet_path %>
+
 <!--general menu-->
 <div id="menu">
   <ul id="nav" class="breite">
     <li><%= link_to "НОВИНИ", root_path %></li>
-    <li><%= link_to "ДЕКАНАТ"%>
+    <li><%= link_to "ДЕКАНАТ", deanery_correspondence_path %>
     <ul class="room" >
       <li ><%= link_to "денне", deanery_full_time_path %></li>
       <li><%= link_to "заочне", deanery_correspondence_path %></li>

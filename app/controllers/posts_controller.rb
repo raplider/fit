@@ -11,7 +11,10 @@ class PostsController < ApplicationController
   end
   
 
-def create
+
+
+  def create
+
     @user = Admin.find(session[:id])
     @post = @user.posts.build(params[:post])
 
@@ -35,9 +38,11 @@ def create
           elsif @user.department == "Деканат" && @post.form_of_study == "ЗВ"
             redirect_to deanery_correspondence_path
           elsif @user.department == "Студент"
-            redirect_to scientific_society_path
-          end   
-      }
+          else
+            redirect_to student_scientific_society_path
+        end   
+        }
+
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -55,7 +60,9 @@ def create
 def edit
     end
 
-
+    end    
+  end
+  
   def edit
     @post = Post.find(params[:id])
     if session[:id] != nil
