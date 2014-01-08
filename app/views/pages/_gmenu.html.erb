@@ -1,14 +1,3 @@
-
-<%= link_to "Новини", root_path %> |
-<%= link_to "Деканат", deanery_path %> |
-<%= link_to "Кафедри", chairs_path %> |
-<%= link_to "Студенту" %> |
-<%= link_to "Абітурієнту", applicant_path %> |
-<%= link_to "Проекти" %> |
-<%= link_to "Фотогалерея" %> |
-<%= link_to "Контакти" , contact_path %> |
-<%= link_to "Особистий кабінет" , cabinet_path %>
-
 <!--general menu-->
 <div id="menu">
   <ul id="nav" class="breite">
@@ -27,8 +16,8 @@
     </li>
     <li><%= link_to "СТУДЕНТУ" %>
       <ul class="room">
-        <li><a href="#">студентське самоврядування</a></li>
-        <li><a href="#">наукове товариство</a></li>
+        <li><%= link_to "студентське самоврядування", :controller => "pages", :action => "students_sg" %></li>
+        <li><%= link_to "наукове товариство", :controller => "pages", :action => "scientific_society" %></li>
       </ul>
     </li>
     <li><%= link_to "АБІТУРІЕНТУ", applicant_path %>

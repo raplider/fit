@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-#encoding: utf-8
 class PagesController < ApplicationController
   
   def index
@@ -33,15 +32,24 @@ class PagesController < ApplicationController
   
   def pzs
     if session[:id] != nil
-      @user = User.find(session[:id])    
+      @user = Admin.find(session[:id])    
     end
-    @users = User.find_all_by_department("ПЗС")
 
-    @posts = Array.new 
-    for u in @users
-      @posts.push Post.find_all_by_user_id(u.id)
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department("ПЗС")
+  end
+
+  def students_sg    #student
+    if session[:id] != nil
+      @user = Admin.find(session[:id])
     end
- # end
+  end
+
+  def scientific_society       #student
+    if session[:id] != nil
+      @user = Admin.find(session[:id])
+    end
+
+    @posts = Post.paginate(:page => params[:page]).find_all_by_department("Студенти")
   end
 
   def private_cabinet

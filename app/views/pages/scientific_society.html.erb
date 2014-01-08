@@ -1,0 +1,4 @@
+<% if @user != nil && @user.department == 'Студент' %>
+	<%= link_to 'Додати новину', newpost_path %>
+<% end %>
+<%= render 'posts/post' %>

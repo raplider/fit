@@ -1,19 +1,31 @@
+<div style="clear: both">&nbsp</div>
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2>TEST</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div style="clear: both">&nbsp</div>
 <%= tinymce :language => "ru"%>
 
 <%= form_for @post, :url => {:controller => 'posts', :action => "create"}  do |f| %>
 
 
-  <%= f.label :title%></br>
-  <%= f.text_field :title%></br>
+  <%= f.label :title %></br>
+  <%= f.text_field :title %></br>
   
-  <%= f.label :body%></br>
-  <%= f.text_area :body, :class => "tinymce"%>
+  <%= f.label :body %></br>
+  <%= f.text_area :body, :class => "tinymce" %>
   
-  <% if @user.department != "Деканат"%>
+  <% if @user.department != "Деканат" %>
   	<%= f.label :category %>
-  	<%= f.select :category,["Загальна","Внутрішня"] %> <br>
+  	<%= f.select :category, ["Загальна","Внутрішня"] %> <br>
   <% end %>
-  <% if @user.department == "Деканат"%>
+  <% if @user.department == "Деканат" %>
   	<%= f.label :form_of_study %>
   	<%= f.select :form_of_study, ["ДВ","ЗВ"] %> <br>
   <% end %>

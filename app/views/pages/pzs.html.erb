@@ -1,6 +1,6 @@
-</br>
-<% if session[:id] !=nil %>
-  
+<div style='position: absolute'>
+<% if session[:id] !=nil %>  
   <%= link_to "Create New Post", newpost_path%>
 <%end%>
+</div>
 <%= render 'posts/post'%></br>

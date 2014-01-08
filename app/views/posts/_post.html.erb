@@ -1,20 +1,20 @@
 <% for post in @posts%>
-  <% for p in post%>
+
    <div>
   
-    <%= p.created_at%>
+    <%= post.created_at%>
     <% if session[:id] !=nil %>   
-        <% if p.user == @user%>
-           <%= link_to "Edit", {:controller => 'posts', :action => "edit", :id => "#{p.id}"}%>
+        <% if post.admin == @user%>
+           <%= link_to "Edit", {:controller => 'posts', :action => "edit", :id => "#{post.id}"}%>
             or
-        <%= link_to "Delete", {:controller => "posts", :action => "delete", :id => "#{p.id}"}%>
+        <%= link_to "Delete", {:controller => "posts", :action => "delete", :id => "#{post.id}"}%>
         <% end %>
      <% end %>   
      </div>
      
-    <div><%= raw p.body %></div> 
-      <% if p.file_file_name != nil%>
-    <div><%= link_to "Viev file", p.file.url(:original)%></div>
+    <div><%= raw post.body %></div> 
+      <% if post.file_file_name != nil%>
+    <div><%= link_to "View file", post.file.url(:original)%></div>
   <%end%></br> 
-  <% end %>
 <% end %>
+<%= will_paginate @posts %>
