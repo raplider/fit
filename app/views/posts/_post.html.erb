@@ -1,7 +1,6 @@
 <% for post in @posts%>
 
    <div>
-  
     <%= post.created_at%>
     <% if session[:id] !=nil %>   
         <% if post.admin == @user%>
