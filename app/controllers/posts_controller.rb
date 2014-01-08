@@ -67,6 +67,7 @@ def edit
     @post = Post.find(params[:id])
     if session[:id] != nil
       @user = Admin.find(session[:id])
+      @cabinet = params[:cabinet]
     else
       redirect_to root_path
     end
@@ -92,6 +93,7 @@ def edit
           elsif @user.department == "Деканат" && @post.form_of_study == "ЗВ"
             redirect_to deanery_correspondence_path
           elsif @user.department == "Студент"
+          else
             redirect_to scientific_society_path
           end   
       }
