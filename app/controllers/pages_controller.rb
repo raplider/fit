@@ -14,6 +14,7 @@ class PagesController < ApplicationController
     end
 
     @posts = Post.paginate(:page => params[:page]).find_all_by_department_and_form_of_study("Деканат", "ДВ")
+    @deanery_file = DeaneryFile.paginate(:page => params[:page]).find_all_by_form_of_study("ДВ")
   end
 
   def deanery_correspondence
@@ -22,16 +23,7 @@ class PagesController < ApplicationController
     end
 
     @posts = Post.paginate(:page => params[:page]).find_all_by_department_and_form_of_study("Деканат","ЗВ")
-
-    #if session[:id] != nil
-     # @user = Admin.find(session[:id])    
-    ##end
-    #@users = Admin.find_all_by_department("Деканат")
-
-    #@posts = Array.new 
-    #for u in @users
-     # @posts.push Post.paginate(:page => params[:page]).find_all_by_user_id_and_form_of_study(u.id, "ЗВ")
-    #end
+    @deanery_file = DeaneryFile.paginate(:page => params[:page]).find_all_by_form_of_study("ЗВ")
   end
 
   def applicant

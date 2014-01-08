@@ -1,0 +1,19 @@
+<% for file in @deanery_file%>
+
+   <div>
+  
+    <%= file.created_at%>
+    <% if session[:id] !=nil %>   
+        <% if file.admin == @user%>
+           <%= link_to "Edit", {:controller => 'deanery_files', :action => "edit", :id => "#{file.id}"}%>
+            or
+        <%= link_to "Delete", {:controller => "deanery_files", :action => "delete", :id => "#{file.id}"}%>
+        <% end %>
+     <% end %>   
+     </div>
+    <div><%= raw file.name %></div> 
+    <% if file.file_file_name != nil%>
+    <div><%= link_to "View file", file.file.url(:original)%></div>
+  <%end%></br> 
+<% end %>
+<%= will_paginate @deanery_file %>

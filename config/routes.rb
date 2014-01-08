@@ -26,6 +26,8 @@ Fit::Application.routes.draw do
   match '/newpost', :to => 'posts#new'
   match '/chairs/pzs', :to => 'pages#pzs'
   match ':controller/:action'
+
+  match '/newfile', :to => 'deanery_files#new'
   
   # зверху хуйня
 

@@ -1,0 +1,16 @@
+<%= tinymce :language => "ru"%>
+
+<%= form_for @deanery_file, :url => {:controller => 'deanery_files', :action => "create"}  do |f| %>
+
+
+  <%= f.label :name%></br>
+  <%= f.text_field :name%></br>
+  
+
+  <%= f.label :form_of_study %>
+  <%= f.select :form_of_study, ["ДВ","ЗВ"] %> <br>
+
+  <%= f.file_field :file %><br/>
+  
+  <%= f.submit %>
+<%end%>

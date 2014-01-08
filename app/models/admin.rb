@@ -11,6 +11,7 @@ class Admin < ActiveRecord::Base
   validates :password,  :presence => true
 
   has_many :posts
+  has_many :deanery_files
   
   # Повертає ПІБ
   def full_name
