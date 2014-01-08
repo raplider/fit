@@ -14,7 +14,6 @@
 
 <%= form_for @post, :url => {:controller => 'posts', :action => "create", :cabinet => @cabinet}  do |f| %>
 
-<%= @cabinet %>
   <%= f.label :title%></br>
   <%= f.text_field :title%></br>
   

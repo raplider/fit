@@ -1,6 +1,17 @@
+<div style="clear: both">&nbsp</div>
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div style="clear: both">&nbsp</div>
 <%= tinymce :language => "ru"%>
 
-<%= form_for @post, :url => {:controller => 'posts', :action => "update", :id => "#{@post.id}"}  do |f| %>
+<%= form_for @post, :url => {:controller => 'posts', :action => "update", :cabinet => @cabinet, :id => "#{@post.id}"}  do |f| %>
 
   <%= f.label :title%></br>
   <%= f.text_field :title%></br>

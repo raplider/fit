@@ -34,7 +34,7 @@ class PostsController < ApplicationController
           elsif @user.department == "Деканат" && @post.form_of_study == "ЗВ"
             redirect_to deanery_correspondence_path
           elsif @user.department == "Студент"
-            redirect_to scientific_society_path
+            redirect_to student_scientific_society_path
           end   
       }
       else
@@ -48,6 +48,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if session[:id] != nil
       @user = Admin.find(session[:id])
+      @cabinet = params[:cabinet]
     else
       redirect_to root_path
     end
@@ -56,10 +57,30 @@ class PostsController < ApplicationController
   def update
     @user = Admin.find(session[:id])
     @post = Post.find(params[:id])
-    if @post.update_attributes(params[:post])
-      redirect_to cabinet_path
-    else
-      render 'edit'
+
+    respond_to do |format|
+      if @post.update_attributes(params[:post])
+        format.html { 
+          if params[:cabinet]
+            redirect_to cabinet_path
+          elsif @user.department == "ПЗС"
+            redirect_to chairs_pzs_path
+          elsif @user.department == "ІУСТ" 
+            redirect_to chairs_iust_path
+          elsif @user.department == "ЗІММ" 
+            redirect_to chairs_zimm_path
+          elsif @user.department == "Деканат" && @post.form_of_study == "ДВ"
+            redirect_to deanery_full_time_path
+          elsif @user.department == "Деканат" && @post.form_of_study == "ЗВ"
+            redirect_to deanery_correspondence_path
+          elsif @user.department == "Студент"
+            redirect_to student_scientific_society_path
+          end   
+      }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end    
   end
   
