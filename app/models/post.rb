@@ -11,7 +11,14 @@ class Post < ActiveRecord::Base
 	
     validates :title, :body, :presence => true
 
+<<<<<<< HEAD
 	default_scope :order => 'posts.created_at DESC'
+=======
+  validates :title, :body, :presence => true
+
+
+  default_scope :order => 'posts.created_at DESC'
+>>>>>>> labels add
 
   self.per_page = 4
 

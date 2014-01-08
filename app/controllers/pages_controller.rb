@@ -85,9 +85,9 @@ class PagesController < ApplicationController
     if session[:id] == nil
       redirect_to login_path
     else
-      @admin = Admin.find(session[:id])  
+      @user = Admin.find(session[:id])  
     end
-    @posts = Post.paginate(:page => params[:page]).find_all_by_admin_id_and_department(@admin.id, nil)
+    @posts = Post.paginate(:page => params[:page]).find_all_by_admin_id_and_department(@user.id, nil)
   end
   
 end
