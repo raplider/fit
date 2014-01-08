@@ -12,12 +12,16 @@ class DeaneryFilesController < ApplicationController
   def create
     @user = Admin.find(session[:id])
     @deanery_file = @user.deanery_files.build(params[:deanery_file])
-
-    if @deanery_file.save
-      redirect_to cabinet_path
-    else
-      render 'new'
+  
+    respond_to do |format|
+      if @deanery_file.save
+        format.html { redirect_to cabinet_path }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @deanery_file.errors, status: :unprocessable_entity }
+      end
     end    
+
   end
   
 def edit
@@ -32,11 +36,15 @@ def edit
   def update
     @user = Admin.find(session[:id])
     @deanery_file = DeaneryFile.find(params[:id])
-    if @deanery_file.update_attributes(params[:deanery_file])
-      redirect_to cabinet_path
-    else
-      render 'edit'
-    end    
+
+    respond_to do |format|
+      if @deanery_file.update_attributes(params[:deanery_file])
+        format.html { redirect_to cabinet_path }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @deanery_file.errors, status: :unprocessable_entity }
+      end
+    end     
   end
   
   def delete

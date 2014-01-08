@@ -1,3 +1,15 @@
+<div style="clear: both">&nbsp</div>
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div style="clear: both">&nbsp</div>
+
 <%= tinymce :language => "ru"%>
 
 <%= form_for @post, :url => {:controller => 'posts', :action => "create"}  do |f| %>
