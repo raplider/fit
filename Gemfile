@@ -8,8 +8,10 @@ gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
 
 gem 'paperclip'
+<<<<<<< HEAD
 
 gem 'will_paginate', '~> 3.0.5'
+
 
 
 group :assets do
