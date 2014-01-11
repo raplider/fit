@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DeaneryFile < ActiveRecord::Base
 	belongs_to :admin
   	has_attached_file :file

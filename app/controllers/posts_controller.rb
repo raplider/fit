@@ -1,17 +1,14 @@
 # -*- encoding : utf-8 -*-
 class PostsController < ApplicationController
+
+  before_filter :admin_logged_in?, except: [:index, :show]
+
   def new
     @post = Post.new
-    if session[:id] != nil
-      @user = Admin.find(session[:id])
-      @cabinet = params[:cabinet]
-    else
-      redirect_to root_path
-    end
+    @user = Admin.find(session[:id])
+    @cabinet = params[:cabinet]
   end
   
-
-
 
   def create
 
@@ -22,9 +19,8 @@ class PostsController < ApplicationController
       @post.department = @user.department
     end
     
-    respond_to do |format|
-      if @post.save
-        format.html { 
+  
+    if @post.save
           if params[:cabinet]
             redirect_to cabinet_path
           elsif @user.department == "ПЗС"
@@ -40,28 +36,14 @@ class PostsController < ApplicationController
           elsif @user.department == "Студент"
           else
             redirect_to student_scientific_society_path
-        end   
-        }
-
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-
-    @post.department = @user.department 
-    if @post.save!
-      redirect_to cabinet_path
+          end   
     else
-      render 'new'
-    end    
-  end
-
-  
-def edit
+      flash[:error] = @post.errors.full_messages
+      redirect_to new_post_path 
     end
-
-    end    
+    
   end
+
   
   def edit
     @post = Post.find(params[:id])
@@ -69,6 +51,7 @@ def edit
       @user = Admin.find(session[:id])
       @cabinet = params[:cabinet]
     else
+      flash[:error] = @post.errors.full_messages
       redirect_to root_path
     end
   end
@@ -112,4 +95,11 @@ def edit
       redirect_to cabinet_path
     end    
   end
+
+  private 
+
+    def admin_logged_in?
+        session[:id] ? true : (redirect_to root_path, alert: "У вас відсутні права для перегляду цієї сторінки")
+    end
+
 end

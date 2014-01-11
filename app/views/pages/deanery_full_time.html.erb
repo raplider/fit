@@ -1,6 +1,6 @@
 <% if session[:id] !=nil %>   
     <% if @user.department == "Деканат"%>
-		<p><%= link_to "Додати оголошення/новину", newpost_path %></p>
+		<p><%= link_to "Додати оголошення/новину", new_post_path %></p>
 		<p><%= link_to "Додати файл", newfile_path %></p>
 	<% end %>
 <% end %>
@@ -12,7 +12,6 @@
   </ul>
   <div class="tab_container">
     <div id="tab1" class="tab_content">
-
      <%= render 'posts/post'%>
     </div>
     <div id="tab2" class="tab_content">

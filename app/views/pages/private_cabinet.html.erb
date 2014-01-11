@@ -1,13 +1,13 @@
 </br>
 <% if session[:id] !=nil%>   
-  <%= link_to "Create New Post", newpost_path(:cabinet => true)%>
+  <%= link_to "Створити новий пост", new_post_path %>
 <%end%>
 <%= render 'posts/post'%></br>
 <br/>
 <%= link_to "Вийти", logout_path, method: :delete %> </br>
 <b>id: </b>       <%= session[:id]%> <br/>
 
-<b> Ласкаво просимо, <%= @user.full_name %>!</b> </br>
+<h4> <b> Ласкаво просимо, <%= @user.full_name %>!</b> </br> </h4>
 <b>Відділення: </b> <%= @user.department%> <br/>
 <b>Посада: </b> <%= @user.position%> <br/>
 <b>Пароль: </b> <%= @user.password%> <br/>

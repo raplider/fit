@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDeaneryFiles < ActiveRecord::Migration
   def change
     create_table :deanery_files do |t|

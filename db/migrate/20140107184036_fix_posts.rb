@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class FixPosts < ActiveRecord::Migration
   def up
   	add_column :posts, :department, :string

@@ -66,7 +66,8 @@ class PagesController < ApplicationController
     end
 
     @posts = Post.paginate(:page => params[:page]).find_all_by_department("Студенти")
-
+  end
+  
     def iust
      if session[:id] != nil
       @user = Admin.find(session[:id])    
