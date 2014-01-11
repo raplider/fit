@@ -8,6 +8,7 @@ gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
 
 gem 'paperclip'
+gem 'will_paginate', '~> 3.0.5'
 
 gem 'will_paginate', '~> 3.0.5'
 

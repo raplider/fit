@@ -17,6 +17,15 @@ Fit::Application.routes.draw do
   match '/student/scientific_society', :to => 'pages#scientific_society'
  
   resources :posts
+      
+  match '/supervisor/admin',  :to => 'admins#admin'
+  match '/supervisor/login',  :to => 'admins#login'
+  match '/supervisor/logout',  :to => 'admins#logout'
+  match '/supervisor/admin/new',  :to => 'admins#new'
+  match '/supervisor/admin/edit',  :to => 'admins#edit'
+  match '/login',  :to => 'users#login'
+ 
+  resources :posts, :except => [:index, :show]
  
   match "(posts/show/:id)"  => "pages#show"
   match "posts(/:page)"     => "pages#index"
@@ -32,8 +41,6 @@ Fit::Application.routes.draw do
   
   match '/student/scientific_society', :to => 'pages#scientific_society'
   match '/student/students_sg', :to => 'pages#students_sg'
-
-  # зверху хуйня
 
 
   match ':controller/:action'
