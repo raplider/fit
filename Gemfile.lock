@@ -187,5 +187,4 @@ DEPENDENCIES
   tinymce-rails
   tinymce-rails-langs
   uglifier (>= 1.0.3)
-  uuidtools
   will_paginate (~> 3.0.5)
