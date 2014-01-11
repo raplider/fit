@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container clearfix">
 
 	<div id="board">
 	<%= image_tag "motherboard.jpg", class: "logo" %>
@@ -7,25 +7,24 @@
 	<div id="us">
 		<div id="block_a" class="fon">
 
-			<h1><a href="#">Новини</a></h1>
-			<h1><a href="#">НОВИНИ</a></h1>
+			<h3><a href="#">Новини</a></h3>
 			<div class="text">
 
 
 				<% @posts.each do |post| %>
+					<div class="post">
+						<h2><!--<%= post.title %>--> <%= post.created_at.strftime("%Y-%m-%d") %></h2>
 
-					<h2><!--<%= post.title %>--> <%= post.created_at.strftime("%Y-%m-%d") %></h2>
+						<p>
+							<%= truncate(strip_tags(post.body), length: 150) %> <br>
+							<a href="/posts/show/<%= post.id %>"><span><ins>Далі</ins></a>
+						</p>
 
-					<p><%= truncate(post.body, length: 150) %></p>
-					
-					<h3><a href="/posts/show/<%= post.id %>"><span><ins>Далі</ins></a></span></h3>
-
+					</div>
 				<% end %>
 
 
 				</div>
-				</br>
-				</br>
 				<%= will_paginate @posts %>
 			</div>
 		<!-- 	<div id="block_b" class="fon">
@@ -33,10 +32,5 @@
 				<div class="text">
 				</div>
 			</div> -->
-			<div id="block_b" class="fon">
-				<h1><a href="#">КОНФЕРЕНЦІЇ</a></h1>
-				<div class="text">
-				</div>
-			</div>
 		</div>
 	</div>

@@ -8,11 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_self
  *= require_tree .
 */
 
-@import "bootstrap";
 
 /* ----------------- */
 * {
@@ -251,7 +251,7 @@ nav {
 #block_a.fon {
     background: #dfdfd4 url("_bg_01.jpg") repeat-x top;
     background-image: lightpink;
-    width: 536px;
+    width: 100%;
     height: 499px;
     min-height: 363px;
     float: left;
@@ -262,13 +262,24 @@ nav {
     overflow: hidden;
 }
 
-h1 a {
+.post {
+    border: 1px solid #333333;
+     margin: 10px;
+     padding: 5px;
+}
+
+.pagination {
+    width: 100%;
+    text-align: center;
+}
+
+h3 a {
     display: block;
     text-decoration: none;
     color: #fefefe;
     padding: 2px 20px 8px;
-    font: 18px Arial Narrow, Arial,Helvetica,sans-serif;
-    margin-bottom: -18px;
+    margin-bottom: -15px;
+    color: #333333;
 }
 
 #block_b.fon {
@@ -405,7 +416,6 @@ div.deanery_files_block {
 	 background: #ff5;
 }
 
-.container {width: 500px; margin: 10px auto;}
 ul.tabs {
     margin: 0;
     padding: 0;
@@ -487,7 +497,6 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
 
 }
 
-.container {width: 500px; margin: 10px auto;}
 ul.tabs {
     margin: 0;
     padding: 0;
